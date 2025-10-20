@@ -6,15 +6,23 @@ local config = wezterm.config_builder()
 -- Disable all default key bindings for a clean slate
 config.disable_default_key_bindings = true
 
-config.window_background_image = '/Users/edkiro/128822.jpg'
-
-config.window_background_opacity = 0.3
-
 -- Set Nushell as the default shell
-config.default_prog = { "/opt/homebrew/bin/nu" }
+config.default_prog = {
+  "/opt/homebrew/bin/nu", "--login",
+  "--config", "/Users/edkiro/Library/Application Support/nushell/config.nu"
+}
 config.set_environment_variables = {
 	PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin",
 	EDITOR = "code",
+}
+
+config.background = {
+  {
+    source = { File = '/Users/edkiro/128822.jpg' },
+    hsb = { brightness = 0.3, saturation = 0.8 },
+    height = 'Cover',
+    width = 'Cover',
+  },
 }
 
 config.color_scheme = "Miami Hotline"
