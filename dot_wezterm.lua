@@ -9,7 +9,7 @@ config.disable_default_key_bindings = true
 -- Set Nushell as the default shell
 config.default_prog = {
   "/opt/homebrew/bin/nu", "--login",
-  "--config", "/Users/edkiro/Library/Application Support/nushell/config.nu"
+  "--config", "~/Library/Application Support/nushell/config.nu"
 }
 config.set_environment_variables = {
 	PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin",
