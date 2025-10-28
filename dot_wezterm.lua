@@ -2,24 +2,40 @@
 
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+local mux = wezterm.mux
+
+-- Keep tabs invisible in fullscreen
+config.show_tabs_in_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
+config.window_decorations = "RESIZE"
+config.enable_tab_bar = false
+
+config.native_macos_fullscreen_mode = true
+
+wezterm.on('gui-startup', function(cmd)
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+  window:gui_window():toggle_fullscreen()
+end)
 
 -- Disable all default key bindings for a clean slate
 config.disable_default_key_bindings = true
 
 -- Set Nushell as the default shell
 config.default_prog = {
-  "/opt/homebrew/bin/nu", "--login",
-  "--config", "~/Library/Application Support/nushell/config.nu"
+--  "/opt/homebrew/bin/nu", "--login",
+--  "--config", "~/library/application support/nushell/config.nu"
+	"/bin/zsh", "-l", "-c", "cat ~/.config/hotline-miami/rasmus.txt; exec /bin/zsh -l"
 }
 config.set_environment_variables = {
 	PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin",
-	EDITOR = "code",
+	EDITOR = "nvim",
 }
 
 config.background = {
   {
-    source = { File = '/Users/edkiro/128822.jpg' },
-    hsb = { brightness = 0.3, saturation = 0.8 },
+    source = { File = os.getenv("HOME") .. '/.config/hotline-miami/hotline-miami.jpg' },
+    hsb = { brightness = 0.2, saturation = 0.8 },
     height = 'Cover',
     width = 'Cover',
   },
@@ -121,6 +137,18 @@ config.keys = {
 		key = "w",
 		mods = "CMD",
 		action = wezterm.action.CloseCurrentTab({ confirm = false }),
+	},
+	-- Move to next tab (Cmd+Shift+])
+	{
+		key = "]",
+		mods = "CMD|SHIFT",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
+
+	{
+		key = "[",
+		mods = "CMD|SHIFT",
+		action = wezterm.action.ActivateTabRelative(-1),
 	},
 
 	-- Toggle pane zoom (Cmd+Shift+Z)
