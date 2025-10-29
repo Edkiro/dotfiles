@@ -47,7 +47,7 @@ config.color_scheme = "Miami Hotline"
 config.color_schemes = {
 	["Miami Hotline"] = {
 		foreground = "#d7fffe", -- bright near-white cyan
-		background = "#f765b8",--"#0a0018", -- deep night backdrop
+		background = "#0a0018", -- deep night backdrop
 		cursor_bg = "#27fdf5",
 		cursor_border = "#27fdf5",
 		cursor_fg = "#0a0018",
@@ -58,11 +58,11 @@ config.color_schemes = {
 		-- ANSI colors tuned to neon vibe
 		-- black, red, green, yellow, blue, magenta, cyan, white
 		ansi = {
-			"#0a0018", -- black (really dark violet)
+			"#200740",--"#5a2c8e",--"#0a0018", -- black (really dark violet)
 			"#f765b8", -- red -> neon pink
 			"#27fdf5", -- green -> teal/cyan (Miami swap)
 			"#a8f6f8", -- yellow -> light cyan
-			"#6a5cff", -- blue -> electric indigo accent
+			"#e237d1",--"#6a5cff", -- blue -> electric indigo accent
 			"#f98dc9", -- magenta -> bubblegum pink
 			"#27fdf5", -- cyan
 			"#d7fffe", -- white -> near-white cyan
