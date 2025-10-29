@@ -25,8 +25,9 @@ config.disable_default_key_bindings = true
 config.default_prog = {
 --  "/opt/homebrew/bin/nu", "--login",
 --  "--config", "~/library/application support/nushell/config.nu"
-	"/bin/zsh", "-l", "-c", "cat ~/.config/hotline-miami/rasmus.txt; exec /bin/zsh -l"
+	"/bin/zsh"
 }
+
 config.set_environment_variables = {
 	PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin",
 	EDITOR = "nvim",
@@ -46,7 +47,7 @@ config.color_scheme = "Miami Hotline"
 config.color_schemes = {
 	["Miami Hotline"] = {
 		foreground = "#d7fffe", -- bright near-white cyan
-		background = "#0a0018", -- deep night backdrop
+		background = "#f765b8",--"#0a0018", -- deep night backdrop
 		cursor_bg = "#27fdf5",
 		cursor_border = "#27fdf5",
 		cursor_fg = "#0a0018",
@@ -83,6 +84,13 @@ config.color_schemes = {
 	},
 }
 config.keys = {
+	-- Zoom in
+    	{ key = '=', mods = 'CMD', action = wezterm.action.IncreaseFontSize },
+    	-- Zoom out
+    	{ key = '-', mods = 'CMD', action = wezterm.action.DecreaseFontSize },
+    	-- Reset zoom
+    	{ key = '0', mods = 'CMD', action = wezterm.action.ResetFontSize },
+  	
 	-- Split pane vertically (Cmd+D)
 	{
 		key = "d",
@@ -159,30 +167,30 @@ config.keys = {
 	},
 
 	-- Move cursor one word left/right (Option+Left/Right)
-	{
-		key = "LeftArrow",
-		mods = "OPT",
-		action = wezterm.action.SendString("\x1bb"), -- Alt+b
-	},
-	{
-		key = "RightArrow",
-		mods = "OPT",
-		action = wezterm.action.SendString("\x1bf"), -- Alt+f
-	},
+--	{
+--		key = "LeftArrow",
+--		mods = "OPT",
+--		action = wezterm.action.SendKey { key = "b", mods = "ALT" }, --("\x1bb"), -- Alt+b
+--	},
+--	{
+--		key = "RightArrow",
+--		mods = "OPT",
+--		action = wezterm.action.SendKey { key = "f", mods = "ALT" },
+--	},
 
 	-- Cmd+Left: Beginning of line (Ctrl+A)
-	{
-		key = "LeftArrow",
-		mods = "CMD",
-		action = wezterm.action.SendString("\x01"),
-	},
+--	{
+--		key = "LeftArrow",
+--		mods = "CMD",
+--		action = wezterm.action.SendString("\x01"),
+--	},
 
 	-- Cmd+Right: End of line (Ctrl+E)
-	{
-		key = "RightArrow",
-		mods = "CMD",
-		action = wezterm.action.SendString("\x05"),
-	},
+--	{
+--		key = "RightArrow",
+--		mods = "CMD",
+--		action = wezterm.action.SendString("\x05"),
+--	},
 
 	-- Cmd+Up: Beginning of document (Home)
 	{
@@ -201,7 +209,7 @@ config.keys = {
 	{
 		key = "Backspace",
 		mods = "OPT",
-		action = wezterm.action.SendString("\x1b\x7f"), -- Alt+Backspace
+		action = wezterm.action.SendString("\x17")--("\x1b\x7f"), -- Alt+Backspace
 	},
 	{
 		key = "Delete",
