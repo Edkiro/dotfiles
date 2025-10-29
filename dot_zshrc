@@ -83,6 +83,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+alias nvim='NVIM_APPNAME="nvim-kickstart" nvim'
+
 bindkey '^[[1;3C' forward-word   # Option+Right Arrow
 bindkey '^[[1;3D' backward-word  # Option+Left Arrow
 bindkey '^[[D' beginning-of-line  # Cmd + LeftArrow
