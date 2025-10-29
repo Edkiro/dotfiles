@@ -89,6 +89,10 @@ bindkey '^[[D' beginning-of-line  # Cmd + LeftArrow
 bindkey '^[[C' end-of-line        # Cmd + RightArrow
 
 alias ll='ls -lha'
+alias ce='chezmoi edit --watch'
+alias ca='chezmoi add'
+alias cs='chezmoi status'
+alias ccd='chezmoi cd'
 
 cat ~/.config/hotline-miami/rasmus.txt
 
