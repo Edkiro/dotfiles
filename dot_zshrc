@@ -94,7 +94,10 @@ alias ca='chezmoi add'
 alias cs='chezmoi status'
 alias ccd='chezmoi cd'
 
-cat ~/.config/hotline-miami/rasmus.txt
+HM_LOGO=$(( RANDOM % 5 ))
+echo $HM_LOGO
+
+# cat ~/.config/hotline-miami/rasmus.txt
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
