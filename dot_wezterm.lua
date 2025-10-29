@@ -5,10 +5,10 @@ local config = wezterm.config_builder()
 local mux = wezterm.mux
 
 -- Keep tabs invisible in fullscreen
-config.show_tabs_in_tab_bar = false
+config.show_tabs_in_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
-config.enable_tab_bar = false
+config.enable_tab_bar = true--false
 
 config.native_macos_fullscreen_mode = true
 
