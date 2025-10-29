@@ -43,7 +43,7 @@ config.background = {
   },
 }
 
-config.color_scheme = "Miami Hotline"
+config.color_scheme = "Tokyo Night"
 
 config.color_schemes = {
 	["Miami Hotline"] = {
